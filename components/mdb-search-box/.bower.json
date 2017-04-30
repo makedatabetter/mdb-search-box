@@ -12,11 +12,11 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   },
   "homepage": "https://github.com/skamble89/mdb-search-box",
-  "_release": "e868e74ddb",
+  "_release": "29087b488b",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "e868e74ddbc06cc278b895fc204547b4b0911a7c"
+    "commit": "29087b488bbdb1a5c20af891a93897efb19b490c"
   },
   "_source": "https://github.com/skamble89/mdb-search-box.git",
   "_target": "master",
