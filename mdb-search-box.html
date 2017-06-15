@@ -96,7 +96,7 @@ Custom property | Description | Default
         if (this.source instanceof Array) {
           if (filter) {
             this._setSearchResults(this.source.filter(function (e) {
-              return typeof e === typeof {} ? e[prop].toLowerCase().startsWith(filter) : e.toLowerCase().startsWith(filter);
+              return typeof e === typeof {} ? e[prop].toLowerCase().indexOf(filter) > -1 : e.toLowerCase().indexOf(filter) > -1;
             }));
           } else {
             this._setSearchResults(this.source);
