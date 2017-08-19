@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-styles/typography.html">
 
 <!--
 `mdb-search-box`
@@ -48,6 +49,7 @@ Custom property | Description | Default
           font-size: 1em;
           @apply(--mdb-search-box);
         }
+        @apply(--paper-font-common-base);
       }
     </style>
     <paper-input no-label-float placeholder="{{placeholder}}" value="{{filter}}">
