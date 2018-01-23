@@ -52,7 +52,7 @@ Custom property | Description | Default
         @apply(--paper-font-common-base);
       }
     </style>
-    <paper-input no-label-float placeholder="{{placeholder}}" value="{{filter}}">
+    <paper-input no-label-float placeholder="{{placeholder}}" value="{{filter}}" on-keydown="_valueEntered">
       <content></content>
     </paper-input>
   </template>
@@ -91,6 +91,14 @@ Custom property | Description | Default
           value: [],
           readOnly: true,
           notify: true
+        }
+      },
+
+      _valueEntered: function(e){
+        if (e.keyCode === 13){
+          this.fire('search-term-entered', {
+            searchTerm : this.filter
+          });
         }
       },
 
