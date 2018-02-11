@@ -104,7 +104,7 @@ Custom property | Description | Default
 
       _filterChanged: function () {
         var prop = this.searchPath,
-          filter = this.filter.toLowerCase();
+          filter = (this.filter || '').toLowerCase();
 
 
         if (this.source instanceof Array) {
