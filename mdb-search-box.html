@@ -52,7 +52,8 @@ Custom property | Description | Default
         @apply(--paper-font-common-base);
       }
     </style>
-    <paper-input no-label-float placeholder="{{placeholder}}" value="{{filter}}" on-keydown="_valueEntered">
+    <paper-input no-label-float placeholder="{{placeholder}}" value="{{filter}}" on-keydown="_valueEntered"
+      allowed-pattern='[[allowedPattern]]' minlength='[[minlength]]' maxlength='[[maxlength]]'>
       <content></content>
     </paper-input>
   </template>
@@ -91,6 +92,18 @@ Custom property | Description | Default
           value: [],
           readOnly: true,
           notify: true
+        },
+
+        allowedPattern: {
+          type: String
+        },
+
+        minlength: {
+          type: Number
+        },
+
+        maxlength: {
+          type: Number
         }
       },
 
