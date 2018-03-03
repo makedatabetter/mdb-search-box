@@ -126,10 +126,14 @@ Custom property | Description | Default
 
       _valueEntered: function(e){
         if (e.keyCode === 13){
-          this.fire('search-term-entered', {
-            searchTerm : this.filter
-          });
+          this._fireFilterUpdate();
         }
+      },
+
+      _fireFilterUpdate: function(){
+        this.fire('search-term-entered', {
+          searchTerm : this.filter
+        });
       },
 
       _filterChanged: function () {
@@ -156,6 +160,7 @@ Custom property | Description | Default
 
       _clearFilter: function(){
         this.filter = '';
+        this._fireFilterUpdate();
       },
 
       _isFilterPresent: function(){
