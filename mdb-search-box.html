@@ -66,11 +66,13 @@ Custom property | Description | Default
     <paper-input no-label-float placeholder="{{placeholder}}" value="{{filter}}" on-keydown="_valueEntered"
       allowed-pattern='[[allowedPattern]]' minlength='[[minlength]]' maxlength='[[maxlength]]'>
       <content></content>
-      <template is='dom-if' if='[[!_isFilterPresent(filter)]]'>
-        <iron-icon icon="search" suffix></iron-icon>
-      </template>
-      <template is='dom-if' if='[[_isFilterPresent(filter)]]'>
-        <paper-icon-button icon='clear' suffix on-click='_clearFilter'></paper-icon-button>
+      <template is='dom-if' if='[[showSearchControls]]'>
+        <template is='dom-if' if='[[!_isFilterPresent(filter)]]'>
+          <iron-icon icon="search" suffix></iron-icon>
+        </template>
+        <template is='dom-if' if='[[_isFilterPresent(filter)]]'>
+          <paper-icon-button icon='clear' suffix on-click='_clearFilter'></paper-icon-button>
+        </template>
       </template>
     </paper-input>
   </template>
@@ -121,6 +123,11 @@ Custom property | Description | Default
 
         maxlength: {
           type: Number
+        },
+
+        showSearchControls: {
+          type: Boolean,
+          value: false
         }
       },
 
