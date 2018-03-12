@@ -17,18 +17,18 @@ Custom property | Description | Default
 <dom-module id="mdb-search-box">
   <template>
     <style>
-       :host {
+      :host {
         display: block;
 
         --iron-icon-fill-color: gray;
-        --paper-icon-button:{
+        --paper-icon-button: {
           padding: 0px;
           margin-right: 5px;
           height: 25px;
           width: 25px;
           opacity: 0.7;
         }
-        
+
         --paper-input-container-color: #bbb;
         --paper-input-container-focus-color: #bbb;
         --paper-input-container-underline: {
@@ -64,7 +64,7 @@ Custom property | Description | Default
         @apply(--paper-font-common-base);
       }
     </style>
-    <paper-input no-label-float placeholder="{{placeholder}}" value="{{filter}}" on-keydown="_valueEntered"
+    <paper-input no-label-float placeholder="{{placeholder}}" value="{{filter}}" on-keyup="_valuePressed" on-keydown="_valueEntered"
       allowed-pattern='[[allowedPattern]]' minlength='[[minlength]]' maxlength='[[maxlength]]'>
       <content></content>
       <template is='dom-if' if='[[showSearchControls]]'>
@@ -131,16 +131,20 @@ Custom property | Description | Default
           value: false
         }
       },
-
-      _valueEntered: function(e){
-        if (e.keyCode === 13){
+      _valuePressed: function (params) {
+        this.fire('search-term-pressed', {
+          searchTerm: this.filter
+        });
+      },
+      _valueEntered: function (e) {
+        if (e.keyCode === 13) {
           this._fireFilterUpdate();
         }
       },
 
-      _fireFilterUpdate: function(){
+      _fireFilterUpdate: function () {
         this.fire('search-term-entered', {
-          searchTerm : this.filter
+          searchTerm: this.filter
         });
       },
 
@@ -166,12 +170,12 @@ Custom property | Description | Default
         this._source = source;
       },
 
-      _clearFilter: function(){
+      _clearFilter: function () {
         this.filter = '';
         this._fireFilterUpdate();
       },
 
-      _isFilterPresent: function(){
+      _isFilterPresent: function () {
         return (this.filter || '').length > 0;
       }
 
