@@ -68,7 +68,7 @@ Custom property | Description | Default
         @apply(--paper-font-common-base);
       }
     </style>
-    <paper-input no-label-float placeholder="{{placeholder}}" value="{{filter}}" on-keyup="_valuePressed" on-keydown="_valueEntered"
+    <paper-input no-label-float placeholder="{{placeholder}}" value="{{filter}}" type="{{type}}" on-keyup="_valuePressed" on-keydown="_valueEntered"
       allowed-pattern='[[allowedPattern]]' minlength='[[minlength]]' maxlength='[[maxlength]]'>
       <content></content>
       <template is='dom-if' if='[[showSearchControls]]'>
@@ -108,6 +108,10 @@ Custom property | Description | Default
         },
 
         searchPath: {
+          type: String
+        },
+
+        type: {
           type: String
         },
 
