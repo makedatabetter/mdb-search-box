@@ -73,7 +73,7 @@ Custom property | Description | Default
       <content></content>
       <template is='dom-if' if='[[showSearchControls]]'>
         <template is='dom-if' if='[[!_isFilterPresent(filter)]]'>
-          <iron-icon icon="search" suffix></iron-icon>
+          <paper-icon-button icon='search' suffix></paper-icon-button>
         </template>
         <template is='dom-if' if='[[_isFilterPresent(filter)]]'>
           <paper-icon-button icon='clear' suffix on-click='_clearFilter'></paper-icon-button>
