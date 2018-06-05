@@ -158,7 +158,7 @@ Custom property | Description | Default
 
       _filterChanged: function () {
         var prop = this.searchPath,
-          filter = (this.filter || '').toLowerCase();
+          filter = (this.filter || '').toString().toLowerCase();
 
 
         if (this.source instanceof Array) {
@@ -184,7 +184,7 @@ Custom property | Description | Default
       },
 
       _isFilterPresent: function () {
-        return (this.filter || '').length > 0;
+        return (this.filter || '').toString().length > 0;
       }
 
     });
