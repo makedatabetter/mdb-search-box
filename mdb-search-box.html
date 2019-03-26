@@ -70,7 +70,7 @@ Custom property | Description | Default
       }
     </style>
     <paper-input no-label-float placeholder="{{placeholder}}" value="{{filter}}" type="{{type}}" on-keyup="_valuePressed" on-keydown="_valueEntered"
-      allowed-pattern='[[allowedPattern]]' minlength='[[minlength]]' maxlength='[[maxlength]]' min='[[min]]' max='[[max]]'>
+      allowed-pattern='[[allowedPattern]]' minlength='[[minlength]]' maxlength='[[maxlength]]' min='[[min]]' max='[[max]]' disabled='[[disabled]]'>
       <content></content>
       <template is='dom-if' if='[[showSearchControls]]'>
         <template is='dom-if' if='[[!_isFilterPresent(filter)]]'>
@@ -141,6 +141,11 @@ Custom property | Description | Default
 
         max: {
           type: String
+        },
+
+        disabled: {
+          type: Boolean,
+          value: false
         },
 
         showSearchControls: {
