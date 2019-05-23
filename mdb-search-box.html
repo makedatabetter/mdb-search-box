@@ -190,6 +190,7 @@ Custom property | Description | Default
 
       _sourceChanged: function (source) {
         this._source = source;
+        this._filterChanged(); //To reflect search results initial state since it is read only.
       },
 
       _clearFilter: function () {
